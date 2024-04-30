@@ -20,12 +20,12 @@ export default async function BazaHeader({ lng }) {
   return (
     <div className={styles.topbg}>
       <header className={styles.header}>
-        <wrap className={styles.wrap}>
+        <div className={styles.wrap}>
           <BazaLogo />
           <Navigate links={navLink} />
           <AidButton />
           <LanguageBtn lng={lng} />
-        </wrap>
+        </div>
       </header>
     </div>
   );

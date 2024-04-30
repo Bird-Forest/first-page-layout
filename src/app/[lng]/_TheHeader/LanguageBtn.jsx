@@ -1,40 +1,39 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 // import i18nConfig from "../../../i18nConfig";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import styles from "./Header.module.css";
-import { languages, fallbackLng } from "../../i18n/settings";
+import { languages } from "../../i18n/settings";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function LanguageBtn() {
-  const [isOpen, setIsOpen] = useState(true);
   const pathName = usePathname();
-  console.log(pathName);
-  const segments = pathName.split("/");
-  console.log(segments);
-  const lng = segments[1];
-  console.log(lng);
-  // const newPath =
-  // const redirectedPathName = (lng) => {
-  //   if (!pathName) return "/";
-  //   const segments = pathName.split(pathName);
-  //   console.log(segments);
-  //   const lng = segments[1]
-  //   return segments.join("/");
-  // };
+  const [isOpen, setIsOpen] = useState(true);
+  const [newLng, setNewLng] = useState("");
+
+  const redirectedPathName = (lng) => {
+    if (!pathName) return "/";
+    const segments = pathName.split("/");
+    segments[1] = lng;
+    return segments.join("/");
+  };
+
+  console.log(newLng);
+
   return (
     <div className={styles.lngwrap}>
       <div className={styles.lngselect}>
         <input
           className={styles.lnginput}
+          type="text"
           id="lng"
           name="lng"
-          value={lng.toUpperCase()}
-          readOnly={lng}
+          value={newLng.toUpperCase()}
+          readOnly={newLng}
+          // onChange={newLng.toUpperCase()}
         />
         <ul
           className={styles.lnglist}
@@ -44,8 +43,8 @@ export default function LanguageBtn() {
         >
           {languages.map((lng) => {
             return (
-              <li key={lng}>
-                <Link href={lng} className={styles.lnglink}>
+              <li key={lng} value={lng} onClick={() => setNewLng(lng)}>
+                <Link href={redirectedPathName(lng)} className={styles.lnglink}>
                   {lng.toUpperCase()}
                 </Link>
               </li>
@@ -63,6 +62,8 @@ export default function LanguageBtn() {
     </div>
   );
 }
+
+// onClick={() => setIsOpen(!isOpen)}
 
 // import React from "react";
 // import styles from "./Header.module.css";
