@@ -24,7 +24,7 @@ export default async function BazaHeader({ lng }) {
           <BazaLogo />
           <Navigate links={navLink} />
           <AidButton />
-          <LanguageBtn />
+          <LanguageBtn lng={lng} />
         </wrap>
       </header>
     </div>

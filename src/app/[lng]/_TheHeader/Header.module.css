@@ -100,25 +100,68 @@
     padding: 14px 24px 14px 24px;
   }
 }
-.language {
+.lngwrap {
+  position: relative;
   display: grid;
-  grid-template-columns: 28px 28px;
-  grid-template-rows: 28px;
+  grid-template-columns: 32px 32px;
+  grid-template-rows: 52px;
   justify-content: center;
   align-items: center;
-  gap: 2px;
+  gap: 1px;
   padding: 0;
+  border: none;
 }
-.text {
+.lngselect {
   display: grid;
-  grid-template-columns: 28px;
-  grid-template-rows: 28px;
+  grid-template-columns: 32px;
+  grid-template-rows: 52px 1fr;
+}
+.lnginput {
+  display: grid;
+  grid-template-columns: 32px;
+  grid-template-rows: 52px;
   justify-content: center;
   align-items: center;
   font-size: clamp(16px, 0.839rem + 0.33vw, 18px);
-  color: rgb(252, 252, 252);
+  color: rgb(255, 255, 255);
   font-weight: 600;
   line-height: 1.5;
+  background-color: rgb(46, 5, 53);
+  border: none;
+  outline: transparent;
+  padding: 0 0 0 4px;
+}
+.lnglist {
+  position: absolute;
+  top: 34px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 20px 20px 20px;
+  gap: 2px;
+  list-style: none;
+  background-color: rgb(46, 5, 53);
+  padding: 0 0 4px 4px;
+  border-radius: 4px;
+}
+.lnglink {
+  display: grid;
+  grid-template-columns: 65px;
+  grid-template-rows: 20px;
+  text-decoration: none;
+  font-size: clamp(16px, 0.839rem + 0.33vw, 18px);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  line-height: 1.5;
+}
+.btnicon {
+  display: grid;
+  grid-template-columns: 32px;
+  grid-template-rows: 52px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(46, 5, 53);
+  border: none;
+  outline: transparent;
   padding: 0;
 }
 .icon {
