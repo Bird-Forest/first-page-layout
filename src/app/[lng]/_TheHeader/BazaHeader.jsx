@@ -4,16 +4,19 @@ import Navigate from "./Navigate";
 import BazaLogo from "./BazaLogo";
 import AidButton from "./AidButton";
 import LanguageBtn from "./LanguageBtn";
+import { useTranslation } from "../../i18n/server";
 
-const navLink = [
-  { label: " Головна", href: "/" },
-  { label: "Стажування", href: "/trainees" },
-  { label: "Проєкти", href: "/projects" },
-  { label: "Блог", href: "/blog" },
-  { label: "Контакти", href: "/contacts" },
-];
+export default async function BazaHeader({ lng }) {
+  const { t } = await useTranslation(lng);
 
-export default function BazaHeader() {
+  const navLink = [
+    { label: `${t("home")}`, href: `/${lng}` },
+    { label: `${t("trainees")}`, href: `/${lng}/trainees` },
+    { label: `${t("projects")}`, href: `/${lng}/projects` },
+    { label: `${t("blog")}`, href: `/${lng}/blog` },
+    { label: `${t("contacts")}`, href: `/${lng}/contacts` },
+  ];
+
   return (
     <div className={styles.topbg}>
       <header className={styles.header}>
